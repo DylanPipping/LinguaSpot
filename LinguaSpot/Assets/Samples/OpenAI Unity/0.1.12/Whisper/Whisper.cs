@@ -7,10 +7,10 @@ namespace OpenAI
     public class Whisper : MonoBehaviour
     {
         [SerializeField] private Button recordButton;
-        [SerializeField] private Image progressBar;
-        [SerializeField] private Text message;
         [SerializeField] private Dropdown dropdown;
-        
+        [SerializeField] private ChatGPT chatTest;
+        [SerializeField] private Image progress;
+
         private readonly string fileName = "output.wav";
         private readonly int duration = 5;
         
@@ -37,33 +37,35 @@ namespace OpenAI
             PlayerPrefs.SetInt("user-mic-device-index", index);
         }
         
-        private void StartRecording()
+        private async void StartRecording()
         {
-            isRecording = true;
-            recordButton.enabled = false;
-
-            var index = PlayerPrefs.GetInt("user-mic-device-index");
-            clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
-        }
-
-        private async void EndRecording()
-        {
-            message.text = "Transcripting...";
-            
-            Microphone.End(null);
-            byte[] data = SaveWav.Save(fileName, clip);
-            
-            var req = new CreateAudioTranslationRequest()
+            if (isRecording)
             {
-                FileData = new FileData() {Data = data, Name = "audio.wav"},
-                // File = Application.persistentDataPath + "/" + fileName,
-                Model = "whisper-1",
-            };
-            var res = await openai.CreateAudioTranslation(req);
+                isRecording = false;
+                Debug.Log("Stop Recording...");
 
-            progressBar.fillAmount = 0;
-            message.text = res.Text;
-            recordButton.enabled = true;
+                Microphone.End(null);
+                byte[] data = SaveWav.Save(fileName, clip);
+
+                var req = new CreateAudioTranscriptionsRequest
+                {
+                    FileData = new FileData() { Data = data, Name = "audio.wav" },
+                    // File = Application.persistentDataPath + "/" + fileName,
+                    Model = "whisper-1",
+                    Language = "en"
+                };
+                var res = await openai.CreateAudioTranscription(req);
+
+                chatTest.SendReply(res.Text);
+            }
+            else
+            {
+                Debug.Log("Start recording...");
+                isRecording = true;
+
+                var index = PlayerPrefs.GetInt("user-mic-device-index");
+                clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
+            }
         }
 
         private void Update()
@@ -71,13 +73,13 @@ namespace OpenAI
             if (isRecording)
             {
                 time += Time.deltaTime;
-                progressBar.fillAmount = time / duration;
+                progress.fillAmount = time / duration;
                 
                 if (time >= duration)
                 {
                     time = 0;
-                    isRecording = false;
-                    EndRecording();
+                    progress.fillAmount = 0;
+                    StartRecording();
                 }
             }
         }
