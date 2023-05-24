@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638193016714145447
+      ticks: 638205161621939958
     m_Hash: 2812512997
   m_LockFileStatus:
     m_FilePath: D:/LinguaSpot/LinguaSpot/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638193016714615442
+      ticks: 638205161622050941
     m_Hash: 710720207
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -1704,6 +1704,7 @@ m_ResolvedPackages:
     - 1.3.2
     - 1.3.3
     - 1.3.4
+    - 1.3.5
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -1716,6 +1717,7 @@ m_ResolvedPackages:
     - 1.3.2
     - 1.3.3
     - 1.3.4
+    - 1.3.5
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -5294,7 +5296,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: 'Import and export Alembic files (.abc), record and stream animations
     in the Alembic format directly in Unity.
 
@@ -5338,12 +5340,14 @@ m_ResolvedPackages:
     - 2.3.0-pre.2
     - 2.3.0-pre.3
     - 2.3.0
+    - 2.3.2
     compatible:
     - 2.2.2
     - 2.3.0-pre.1
     - 2.3.0-pre.2
     - 2.3.0-pre.3
     - 2.3.0
+    - 2.3.2
     verified: 2.2.2
   dependencies:
   - name: com.unity.timeline
@@ -5380,7 +5384,7 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637660953620000000
   documentationUrl: 
@@ -5407,7 +5411,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: 'The Recorder allows you to capture and save data from the Unity Editor
     during Play mode: animations, videos, images, audio, arbitrary output variables
     (AOVs), and more.'
@@ -5442,6 +5446,8 @@ m_ResolvedPackages:
     - 4.0.0-pre.4
     - 4.0.0-pre.5
     - 4.0.0
+    - 4.0.1
+    - 5.0.0-pre.1
     compatible:
     - 3.0.3
     - 4.0.0-pre.1
@@ -5483,7 +5489,7 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637726685330000000
   documentationUrl: 
