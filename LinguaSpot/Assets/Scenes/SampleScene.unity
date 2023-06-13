@@ -235,7 +235,7 @@ MonoBehaviour:
   gameStory: The player wants to do some shopping in the supermarket but does not
     know where everything is located and is not proficiant enough yet with the dutch
     language. Therefore he can ask the employee in the supermarket where things are
-    with the knowledge of the dutch language the player already has.
+    with the knowledge of the dutch language the player  already has.
   gameWorld: This place is called LinguaSpot supermarket where the NPC works as a
     employee to help players teach players dutch on elementary school level dutch
     by guiding them through the store.
